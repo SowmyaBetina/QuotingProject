@@ -67,7 +67,7 @@ Configure products, select locations, and enter parameter values.
 
 Calculate and display billing information.
 
-**3.8 Additional Features**
+**3.8 Additional Features**<br>
 API Integration: Expose APIs using Spring Boot REST controllers and implement Swagger for API testing.<br>
 Java Concepts: Utilize Java concepts like Streams and Lombok for efficient coding.<br>
 Database Design: Implement one-to-many and many-to-one relationships between tables for data integrity.
