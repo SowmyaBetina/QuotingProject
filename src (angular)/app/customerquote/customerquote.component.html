@@ -1,0 +1,73 @@
+<!-- <div *ngIf="customerData && quoteData">
+    <h2>Customer Quote Data</h2>
+    <p>Customer Name: {{ customerData.customerName }}</p>
+    <p>Account Status: {{ customerData.accountStatus }}</p>
+    
+    <h3>Quotes:</h3>
+    <ul>
+      <li *ngFor="let quote of quoteData">
+        {{ quote.quoteName }} - {{ quote.quoteOwner }}
+      </li>
+    </ul>
+    
+    <p>Total Quotes: {{ quoteData.length }}</p>
+  </div>
+   -->
+<!-- 
+   <div>
+    <table>
+        <tbody>
+            <tr *ngFor="let item of customerQuotes">
+                <td>{{ item.customerName }}</td>
+                <td>{{ item.accountStatus }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+        
+   </div>
+   <div>
+      
+    <table>
+      <thead>
+        <tr>
+          <th>Quote Name</th>
+          <th>Quote Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of customerQuotes">
+          
+          <td>{{ item.quoteName }}</td>
+          <td>{{ item.quoteOwner }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+   -->
+
+   <div>
+    
+    <table>
+      <tbody>
+        <!-- <tr *ngIf="customerQuotes.length > 0">
+          <td><b>Customer Name - </b>{{ customerQuotes[0].customerName }}</td>
+          <td><b>Account Status - </b>{{ customerQuotes[0].accountStatus }}</td>
+        </tr> -->
+        <tr>
+            <td><b>Quote Name</b></td>
+            <td><b>Quote Owner</b></td>
+        </tr>
+        <tr *ngFor="let item of customerQuotes">
+            
+          <td>{{ item.quoteName }}</td>
+          <td>{{ item.quoteOwner }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <!-- <button (click)="onNextClick()">Next</button> -->
+    <button [routerLink]="['/location']">Next</button>
+  </div>
+  
