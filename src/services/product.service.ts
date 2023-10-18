@@ -5,10 +5,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:8080/quotes/productslist'; 
+  private apiUrl = 'http://localhost:8080/quotes'; 
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(`${this.apiUrl}/productslist`)
+  }
+  getProductNames() {
+    return this.http.get<string[]>(`${this.apiUrl}/productnames`);
   }
 }

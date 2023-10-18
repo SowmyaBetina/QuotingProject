@@ -5,11 +5,22 @@ import { CustomerquoteComponent } from './customerquote/customerquote.component'
 import { ProductComponent } from './product/product.component';
 import { ParameterComponent } from './parameter/parameter.component';
 import { FeatureComponent } from './feature/feature.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { ConfigurationComponent } from './configuration/configuration.component';
+
 const routes: Routes = [
-  { path: '', redirectTo: '/customerquote', pathMatch: 'full' }, 
+  { path: '', redirectTo: '/register', pathMatch: 'full' },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  //{ path: '', redirectTo: '/customerquote', pathMatch: 'full' }, 
   { path: 'customerquote', component: CustomerquoteComponent },
   { path: 'location', component: LocationComponent },
-  { path: 'products', component: ProductComponent }
+  { path: 'products', component: ProductComponent },
+  { path: 'configuration', component: ConfigurationComponent },
+  { path: 'features/:name', component: FeatureComponent },
+  
+
 
 ];
 @NgModule({

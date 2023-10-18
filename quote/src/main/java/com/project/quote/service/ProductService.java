@@ -1,5 +1,6 @@
 package com.project.quote.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,12 +25,22 @@ public class ProductService {
 //	    }
 	
 	public List<ProductDTO> getAllProducts() {
-        List<Product> products = productRepository.findAll();
+		 List<Product> products = productRepository.findAll();
 
         
         return products.stream()
             .map(this::mapToDTO)
             .collect(Collectors.toList());
+    }
+    public List<String> getAllProductNames() {
+    	 List<Product> products = productRepository.findAll();
+        List<String> productNames = new ArrayList<>();
+        
+        for (Product product : products) {
+            productNames.add(product.getName());
+        }
+        
+        return productNames;
     }
 
     private ProductDTO mapToDTO(Product product) {

@@ -1,8 +1,12 @@
 package com.project.quote.controller;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import com.project.quote.business.LoginBody;
 import com.project.quote.dto.FeatureDTO;
 import com.project.quote.dto.ParameterDTO;
 import com.project.quote.dto.ProductDTO;
@@ -12,12 +16,14 @@ import com.project.quote.entity.Feature;
 import com.project.quote.entity.Location;
 import com.project.quote.entity.Product;
 import com.project.quote.entity.Quote;
+import com.project.quote.entity.User;
 import com.project.quote.repository.CustomerRepository;
 import com.project.quote.repository.FeatureRepository;
 import com.project.quote.repository.LocationRepository;
 import com.project.quote.repository.ParameterRepository;
 import com.project.quote.repository.ProductRepository;
 import com.project.quote.repository.QuoteRepository;
+import com.project.quote.repository.UserRepository;
 import com.project.quote.service.FeatureService;
 import com.project.quote.service.ParameterService;
 import com.project.quote.service.ProductService;
@@ -45,11 +51,36 @@ public class QuoteController {
 	@Autowired
 	private ParameterRepository parameterRepository;
 	@Autowired
+	private UserRepository userRepository;
+	@Autowired
 	private ProductService productService;
 	@Autowired
 	private FeatureService featureService;
 	@Autowired
 	private ParameterService parameterService;
+	@Autowired 
+	private PasswordEncoder passwordEncoder;
+	
+	@PostMapping("/register")
+    public ResponseEntity<String> registerUser(@RequestBody User user) {
+        try {
+            if (userRepository.existsByName(user.getName())) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username already exists");
+            }
+       user.setName(user.getName());
+       user.setPassword(passwordEncoder.encode(user.getPassword()));
+       userRepository.save(user);
+       return ResponseEntity.ok("User registered successfully");
+        } 
+        catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Registration failed: " + e.getMessage());
+        }
+    }
+	
+	@GetMapping("/productnames")
+	public List<String> getProductNames() {
+        return productService.getAllProductNames();
+    }
 	
 	@GetMapping("/select")
     public List<QuoteCustomerDTO> getSelectedData() {
@@ -83,21 +114,13 @@ public class QuoteController {
 	    }
 	 
 	 
-//	 @GetMapping("/featureslist")
-//	    public List<FeatureDTO> getAllFeatures() {
-//	        return featureService.getAllFeatures();
-//	    }
-	 
+
 	 @GetMapping("/features/{name}")
 	    public List<FeatureDTO> getFeaturesForProduct(@PathVariable String name) {
 	        return featureService.getFeaturesForProduct(name);
 	    }
 	 
-//	 @GetMapping("/parameterslist")
-//	    public List<ParameterDTO> getAllParameters() {
-//	        return parameterService.getAllParameters();
-//	    }
-	 
+
 	 @GetMapping("/parameters/{name}")
 	    public List<ParameterDTO> getParametersForFeature(@PathVariable String name) {
 	        return parameterService.getParametersForFeature(name);
@@ -105,4 +128,5 @@ public class QuoteController {
 
 	 
 }
-	
+
+

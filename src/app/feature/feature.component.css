@@ -1,0 +1,33 @@
+.features-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .feature-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .feature-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px 0;
+  }
+  
+  .no-features {
+    color: #999;
+  }
+  
+  .loading-features {
+    color: #007acc;
+  }
+  

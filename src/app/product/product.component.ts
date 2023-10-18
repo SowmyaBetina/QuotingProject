@@ -13,13 +13,21 @@ import { HttpClient } from '@angular/common/http';
 export class ProductComponent implements OnInit{
   products!: any[]; 
 
-  constructor(private http: HttpClient, private productService: ProductService) {}
+  constructor(private http: HttpClient, private productService: ProductService, private router: Router) {}
 
   ngOnInit(): void {
     
     this.productService.getProducts().subscribe((data: any) => {
       this.products = data;
     });
+  }
+
+  viewFeatures(productName: string) {
+    this.router.navigate(['/features', productName]);
+  }
+
+  navigateToConfiguration() {
+    this.router.navigate(['/configuration']);
   }
  
 

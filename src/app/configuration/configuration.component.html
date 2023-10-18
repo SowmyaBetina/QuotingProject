@@ -1,0 +1,8 @@
+<div>
+    <h1>Configuration Page</h1>
+    <label for="productDropdown">Select a Product:</label>
+    <select id="productDropdown">
+      <option *ngFor="let productName of products" [value]="productName">{{ productName }}</option>
+    </select>
+  </div>
+  

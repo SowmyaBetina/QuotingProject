@@ -1,0 +1,47 @@
+<!-- 
+
+   <div>
+    
+    <table>
+      <tbody>
+        
+        <tr>
+            <td><b>Quote Name</b></td>
+            <td><b>Quote Owner</b></td>
+        </tr>
+        <tr *ngFor="let item of customerQuotes">
+            
+          <td>{{ item.quoteName }}</td>
+          <td>{{ item.quoteOwner }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    
+    <button [routerLink]="['/location']">Next</button>
+  </div>
+   -->
+
+
+   <div class="container">
+    <h1>Customer Quotes</h1>
+    <table class="quote-table">
+      <thead>
+        <tr>
+          <th>Quote Name</th>
+          <th>Quote Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of customerQuotes">
+          <td>{{ item.quoteName }}</td>
+          <td>{{ item.quoteOwner }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="button-container">
+      <button class="next-button" [routerLink]="['/location']">Next</button>
+    </div>
+  </div>
+  

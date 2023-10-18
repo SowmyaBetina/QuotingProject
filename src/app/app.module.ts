@@ -11,6 +11,9 @@ import { ProductComponent } from './product/product.component';
 import { FeatureComponent } from './feature/feature.component';
 import { ParameterComponent } from './parameter/parameter.component';
 import { ProductService } from 'src/services/product.service';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ConfigurationComponent } from './configuration/configuration.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,10 @@ import { ProductService } from 'src/services/product.service';
     LocationComponent,
     ProductComponent,
     FeatureComponent,
-    ParameterComponent
+    ParameterComponent,
+    LoginComponent,
+    RegisterComponent,
+    ConfigurationComponent
   ],
   imports: [
     BrowserModule,
