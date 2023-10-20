@@ -17,6 +17,7 @@ Middleware: Java/Spring Boot
 Backend: PostgreSQL
 Server: Embedded Tomcat
 Build Tool: Maven
+Code Quality: Sonarqube
 
 ### **2. System Overview**
 
