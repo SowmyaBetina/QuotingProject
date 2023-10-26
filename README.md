@@ -12,12 +12,12 @@ The Quoting Project aims to provide a comprehensive system for creating and mana
 
 **1.3 Technologies Used**
 
-UI / Framework: Angular 16, HTML5
-Middleware: Java/Spring Boot
-Backend: PostgreSQL
-Server: Embedded Tomcat
-Build Tool: Maven
-Code Quality: Sonarqube
+UI / Framework: Angular 16, HTML5 <br>
+Middleware: Java/Spring Boot <br>
+Backend: PostgreSQL <br>
+Server: Embedded Tomcat <br>
+Build Tool: Maven <br>
+Code Quality: Sonarqube <br>
 
 ### **2. System Overview**
 
